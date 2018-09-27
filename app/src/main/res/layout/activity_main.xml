@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:elevation="0dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/top"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:background="#FF1F1F1F"
+            android:layoutDirection="ltr"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layoutDirection="rtl"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/sign_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:adjustViewBounds="false"
+                    android:alpha="0.7"
+                    android:background="#FF1F1F1F"
+                    android:onClick="sign_out"
+                    android:src="@drawable/ic_logout_2" />
+
+                <ImageButton
+                    android:id="@+id/edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:alpha="0.7"
+                    android:background="#FF1F1F1F"
+                    android:onClick="editbtn"
+                    app:srcCompat="@drawable/ic_edit" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="-40dp"
+            android:background="@drawable/circle"
+            android:elevation="4dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/floatingActionButton4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_margin="20dp"
+                android:clickable="false"
+                app:backgroundTint="@android:color/background_light"
+                app:elevation="0dp"
+                app:srcCompat="@drawable/ic_professor_90" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/heebo"
+            android:text="שלום"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/loc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/heebo"
+            android:text="משתמש רשום"
+            android:textAlignment="center"
+            android:textColor="#FF1F1F1F"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/background_light"
+            android:elevation="1dp"
+            android:orientation="vertical"></LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/listy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                tools:listitem="@layout/course_list_item" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="58dp"
+        android:layout_marginEnd="75dp"
+        android:background="#FFCA597A"
+        android:onClick="addbtn"
+        android:src="@drawable/ic_add_black_24dp"
+        app:backgroundTint="#FFCA597A"
+        app:elevation="10dp" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/write_me"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="58dp"
+        android:layout_marginStart="75dp"
+        android:background="#FFCA597A"
+        android:onClick="sendInfoBtn"
+        android:src="@drawable/ic_clipboards"
+        app:backgroundTint="#FFCA597A"
+        app:elevation="10dp" />
+
+</RelativeLayout>

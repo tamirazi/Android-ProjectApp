@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">firebaseuitest</string>
+    <string name="facebook_application_id" translatable="false">1172580996214014</string>
+    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
+    <string name="facebook_login_protocol_scheme" translatable="false">fbAPP_ID</string>
+
+    <string-array name="title_spinner">
+        <item>מר</item>
+        <item>גברת</item>
+        <item>דוקטור</item>
+        <item>פרופסור</item>
+    </string-array>
+
+    <string-array name="gender_spinner">
+        <item>זכר</item>
+        <item>נקבה</item>
+    </string-array>
+
+    <string-array name="sem">
+        <item>א'</item>
+        <item>ב'</item>
+        <item>ק'</item>
+    </string-array>
+
+
+    <string name="details">
+            <item>        שלום, אנא ממך מלא פרטים אלו על מנת שנוכל להתקדם, מיד לאחר מכן תעבור לדף בו תוכל להוסיף קורס לרשימת נוכחויות או לרשום את נוכחותך בקרוס. בכל רשימה שתיצור תוכל למחוק פריט ע"י לחיצה ארוכה עליו</item>
+    </string>
+</resources>

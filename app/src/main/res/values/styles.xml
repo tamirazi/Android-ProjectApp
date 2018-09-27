@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF1F1F1F</item>
+        <item name="colorPrimaryDark">#FF1F1F1F</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="GreenTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Required for sign-in flow styling -->
+        <item name="android:windowBackground">@color/material_green_50</item>
+        <item name="android:actionBarStyle">@style/Theme.Design.NoActionBar</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>
