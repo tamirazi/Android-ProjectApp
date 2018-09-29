@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements Course_info_dialo
 
         handlePerrmision();
         textUser = findViewById(R.id.loc);
-        //info = findViewById(R.id.no_courses);
+        info = findViewById(R.id.no_courses);
         courses_list = new ArrayList<>();
         course_adapter = new CourseListAdapter(courses_list);
         list = findViewById(R.id.listy);
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements Course_info_dialo
                     courses_list.clear();
                     if (task.isSuccessful()) {
                         for (DocumentSnapshot document : task.getResult()) {
-//                            info.setVisibility(View.INVISIBLE);
+                            info.setVisibility(View.INVISIBLE);
                             Course course = new Course();
                             course.updateMap((Serializable) document.getData());
                             courses_list.add(course);
@@ -327,10 +327,11 @@ public class MainActivity extends AppCompatActivity implements Course_info_dialo
     }
 
     @Override
-    public void sendInput(String name, String loc) {
+    public void sendInput(String name, String loc ,String color) {
         HashMap<String , Object> map = new HashMap<>() ;
         map.put("name" , name);
         map.put("location" , loc);
+        map.put("color" , color);
         map.put("cid" , Calendar.getInstance().getTime().toString());
         my_courses.add(map);
         my_courses.writeUserToDB(db.collection("users").document(user.getValue("id")));
@@ -338,7 +339,7 @@ public class MainActivity extends AppCompatActivity implements Course_info_dialo
         Course course = new Course();
         course.updateMap(map);
         courses_list.add(course);
-//        info.setVisibility(View.INVISIBLE);
+        info.setVisibility(View.INVISIBLE);
         course_adapter.notifyDataSetChanged();
     }
 

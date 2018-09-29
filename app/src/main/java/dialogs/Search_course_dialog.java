@@ -188,7 +188,7 @@ public class Search_course_dialog extends DialogFragment implements P2PKitStatus
                 }));
 
 
-
+        if(P2PKit.isEnabled()) P2PKit.disable();
         if(!P2PKit.isEnabled()){
             try {
                 P2PKit.enable(view.getContext(), APP_KEY, this);

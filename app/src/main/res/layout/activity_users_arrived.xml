@@ -14,19 +14,29 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar2"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="125dp"
+            android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
+            android:elevation="3dp"
+            android:layoutDirection="rtl"
+            android:textAlignment="center"
+            android:textDirection="rtl"
+            android:theme="?attr/actionBarTheme"
+            app:subtitle="יום שישי 22.01.2017"
+            app:subtitleTextAppearance="@style/ToolbarSubtitleAppearance"
+            app:subtitleTextColor="@color/com_facebook_button_background_color_disabled"
+            app:title="אלגברה לינארית"
+            app:titleMarginStart="50dp"
+            app:titleTextAppearance="@style/ToolbarTitleAppearance"
+            app:titleTextColor="@color/browser_actions_bg_grey" />
 
         <TextView
             android:id="@+id/no_students"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/heebo"
-            android:onClick="refreshbth"
             android:text="לא קיימת רשימת משתתפים"
             android:textAlignment="center" />
 

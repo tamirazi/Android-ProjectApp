@@ -14,7 +14,7 @@ public class Course{
         if(course_map.containsKey(key)){
             return course_map.get(key);
         }
-        return null;
+        return "";
     }
 
     public void set(String key , String value){

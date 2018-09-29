@@ -84,7 +84,6 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
     @Override
     protected void onStop() {
         Toast.makeText(this ,  "אינך גלוי יותר" ,Toast.LENGTH_SHORT).show();
-        //if (P2PKit.isEnabled()) P2PKit.disable();
         super.onStop();
 
     }
@@ -115,6 +114,7 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
                 users_list.clear();
                 if (task.isSuccessful()) {
                     for (DocumentSnapshot document : task.getResult()) {
+                        info.setVisibility(View.INVISIBLE);
                         User user = new User();
                         user.updateMap((Serializable)document.getData());
                         users_list.add(user);
@@ -141,6 +141,7 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
 
                     }
                 }));
+        if(P2PKit.isEnabled()) P2PKit.disable();
         if(!P2PKit.isEnabled()){
             try {
                 P2PKit.enable(this, APP_KEY, this);

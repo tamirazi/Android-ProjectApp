@@ -49,6 +49,8 @@ public class UsersListAdapter extends RecyclerView.Adapter<UsersListAdapter.View
     public void onBindViewHolder(@NonNull UsersListAdapter.ViewHolder holder, int position) {
         String fullName = data.get(position).getValue("first name") + " " + data.get(position).getValue("last name");
         holder.name.setText(fullName);
+        holder.loc.setText(data.get(position).getValue("state id"));
+
     }
 
     @Override
