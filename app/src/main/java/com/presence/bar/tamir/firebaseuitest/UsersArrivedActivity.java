@@ -116,22 +116,43 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
         tb.setSubtitle(data.getStringExtra("date"));
         tb.setTitle(course_name);
 
-        db.collection(data.getStringExtra("path") + "/" + "students")
-                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//        db.collection(data.getStringExtra("path") + "/" + "students")
+//                .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                users_list.clear();
+//                if (task.isSuccessful()) {
+//                    for (DocumentSnapshot document : task.getResult()) {
+//                        info.setVisibility(View.INVISIBLE);
+//                        User user = new User();
+//                        user.updateMap((Serializable)document.getData());
+//                        users_list.add(user);
+//                        users_list_adapter.notifyDataSetChanged();
+//                    }
+//
+//                } else {
+//                    Log.w("stam", "Error getting documents.", task.getException());
+//                }
+//            }
+//        });
+
+        db.collection(data.getStringExtra("path") + "/" + "students").addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                users_list.clear();
-                if (task.isSuccessful()) {
-                    for (DocumentSnapshot document : task.getResult()) {
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+                if (e != null) {
+                    Log.w("realtime", "listen:error", e);
+                    return;
+                }
+
+                for (DocumentChange dc : queryDocumentSnapshots.getDocumentChanges()) {
+                    if (dc.getType() == DocumentChange.Type.ADDED) {
+                        Log.d("realtime", "New student: " + dc.getDocument().getData());
                         info.setVisibility(View.INVISIBLE);
                         User user = new User();
-                        user.updateMap((Serializable)document.getData());
+                        user.updateMap((Serializable)dc.getDocument().getData());
                         users_list.add(user);
                         users_list_adapter.notifyDataSetChanged();
                     }
-
-                } else {
-                    Log.w("stam", "Error getting documents.", task.getException());
                 }
             }
         });

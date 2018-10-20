@@ -60,8 +60,8 @@ public class CourseListAdapter extends RecyclerView.Adapter<CourseListAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.name.setText(data.get(position).getValue("name"));
         holder.loc.setText(data.get(position).getValue("location"));
-        GradientDrawable buttonColor = (GradientDrawable) holder.color.getBackground();
-        buttonColor.setColor(Integer.valueOf(data.get(position).getValue("color")));
+        //    GradientDrawable buttonColor = (GradientDrawable) holder.color.getBackground();
+//        buttonColor.setColor(Integer.valueOf(data.get(position).getValue("color")));
 
 
 
