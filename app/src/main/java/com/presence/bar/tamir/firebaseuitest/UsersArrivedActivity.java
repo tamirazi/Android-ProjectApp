@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +25,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -49,6 +53,7 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
     private String uid , course_name;
     private int phones_near_by = 0;
     private Button refresh;
+    private Toolbar tb;
     private static final String APP_KEY = "02665f6c436b4ae58e7979973f728393";
     String path;
 
@@ -99,6 +104,7 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
         users_list_adapter = new UsersListAdapter(users_list);
         list.setLayoutManager(new LinearLayoutManager(this));
         list.setAdapter(users_list_adapter);
+        tb = findViewById(R.id.toolbar2);
 
 
 
@@ -106,6 +112,9 @@ public class UsersArrivedActivity extends AppCompatActivity implements P2PKitSta
         uid = data.getStringExtra("uid");
         course_name = data.getStringExtra("course_name");
         path = data.getStringExtra("path");
+
+        tb.setSubtitle(data.getStringExtra("date"));
+        tb.setTitle(course_name);
 
         db.collection(data.getStringExtra("path") + "/" + "students")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

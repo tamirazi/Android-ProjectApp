@@ -62,6 +62,9 @@ public class Course_info_dialog extends DialogFragment {
         colors_list.add("#FFF9FCAF");
         colors_list.add("#FF9DE4E3");
         colors_list.add("#FF564481");
+        Random rand = new Random();
+        int n = rand.nextInt(4);
+        color.setBackgroundColor(Color.parseColor(colors_list.get(n)));
 
         color.setOnClickListener(new View.OnClickListener() {
             @Override

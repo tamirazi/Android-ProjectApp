@@ -228,9 +228,9 @@ public class MainActivity extends AppCompatActivity implements Course_info_dialo
                                     new AuthUI.IdpConfig.FacebookBuilder().build(),
                                     new AuthUI.IdpConfig.EmailBuilder().build(),
                                     new AuthUI.IdpConfig.PhoneBuilder().build()))
-                            .setTheme(R.style.GreenTheme)
+                            .setTheme(R.style.AppTheme)
                             .setIsSmartLockEnabled(false)
-                            .setLogo(R.drawable.logo)
+                            .setLogo(R.drawable.logo2)
                             .build()
                     , RC_SIGN_IN);
         }

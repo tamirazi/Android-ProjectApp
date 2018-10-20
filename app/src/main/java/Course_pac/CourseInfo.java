@@ -82,8 +82,10 @@ public class CourseInfo extends AppCompatActivity{
                         String path = db.collection("users").document(user.get("id")).collection("active").document(course.get("cid"))
                                 .collection("days").document(dayList.get(position).getDate()).getPath();
                         System.out.println(path);
+
                         i.putExtra("path", path);
                         i.putExtra("uid" , user.get("id"));
+                        i.putExtra("date" , dayList.get(position).getDate());
                         i.putExtra("course_name" , course.get("name"));
                         startActivity(i);
                     }
