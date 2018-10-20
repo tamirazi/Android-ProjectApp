@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -90,7 +91,7 @@ public class Search_course_dialog extends DialogFragment implements P2PKitStatus
     private FirebaseFirestore db;
     private RecyclerView list;
     private List<Course> courses_list;
-    private CourseListAdapter course_adapter;
+    private Search_course_ListAdapter course_adapter;
     private TextView canclebtn;
     private List<String> paths;
     private User user;
@@ -144,7 +145,7 @@ public class Search_course_dialog extends DialogFragment implements P2PKitStatus
         paths = new ArrayList<>();
         list = view.findViewById(R.id.c_list);
         courses_list = new ArrayList<>();
-        course_adapter = new CourseListAdapter(courses_list);
+        course_adapter = new Search_course_ListAdapter(courses_list);
         list.setLayoutManager(new LinearLayoutManager(view.getContext()));
         list.setAdapter(course_adapter);
         canclebtn = view.findViewById(R.id.stop_listening);
@@ -153,8 +154,12 @@ public class Search_course_dialog extends DialogFragment implements P2PKitStatus
         canclebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext() , "מפסיק לחפש",Toast.LENGTH_SHORT ).show();
-                P2PKit.disable();
+
+                if(P2PKit.isEnabled()){
+                    P2PKit.disable();
+                    Toast.makeText(getContext() , "מפסיק לחפש",Toast.LENGTH_SHORT ).show();
+                }
+
                 dismiss();
             }
         });
